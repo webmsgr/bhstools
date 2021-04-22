@@ -22,9 +22,11 @@ function getTimeUntilNextPeriod() {
     today.setHours(parseInt(time[0]))
     today.setMinutes(parseInt(time[1]))
     today.setSeconds(0)
-    ends.push(today)   
+    dist = today-now
+    if (dist > 0) {
+    return dist
+    }
   }
-  console.log(ends)
   return -1
 }
 // code stolen lmao
