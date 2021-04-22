@@ -1,8 +1,8 @@
 // lmao
-$(document).ready(function() {
+$(document).ready(function () {
   // set up links
   $("a").attr("target", "_blank").attr("referrerpolicy", "no-referrer");
-  $("a.navbar-brand").attr("target", "")
+  $("a.navbar-brand").attr("target", "");
 });
 
 function getEndOfSchool() {
@@ -30,10 +30,11 @@ function CountdownEnd() {
 
   // Display the result in the element with id="demo"
   document.getElementById("countdown-end").innerHTML =
-      hours + "h " + minutes + "m " + seconds + "s ";
+    hours + "h " + minutes + "m " + seconds + "s ";
 }
-function onSecond() { // function handling all countdowns
-  CountdownEnd()
+function onSecond() {
+  // function handling all countdowns
+  CountdownEnd();
 }
 onSecond();
-setInterval(onSecond, 1000)
+setInterval(onSecond, 1000);
