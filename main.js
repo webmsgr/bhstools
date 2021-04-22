@@ -10,7 +10,7 @@ function getEndOfSchool() {
   end.setHours(14);
   end.setMinutes(5);
   end.setSeconds(0);
-  return end;
+  return end - new Date().getTime();
 }
 function getTimeUntilNextPeriod() {
   now = new Date()
@@ -29,15 +29,10 @@ function getTimeUntilNextPeriod() {
   }
   return -1
 }
-// code stolen lmao
-function CountdownEnd() {
-  // Get today's date and time
-  var now = new Date().getTime();
 
-  // Find the distance between now and the count down date
-  var distance = getEndOfSchool() - now;
+function runCountdown(selector,distance) {
   if (distance < 0) {
-    $("#countdown-end").html("0h 0m 0s ")
+    $(selector).html("0h 0m 0s ")
     return;
   }
   // Time calculations for hours, minutes and seconds
@@ -45,27 +40,13 @@ function CountdownEnd() {
   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-  // Display the result in the element with id="demo"
-  $("#countdown-end").html(hours + "h " + minutes + "m " + seconds + "s ")
+  $(selector).html(hours + "h " + minutes + "m " + seconds + "s ")
 }
-function CountdownPeriod() {
-  var distance = getTimeUntilNextPeriod()
-  if (distance < 0) {
-    $("#countdown-period").html("0h 0m 0s ")
-    return;
-  }
-  // Time calculations for hours, minutes and seconds
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-  // Display the result in the element with id="demo"
-  $("#countdown-period").html(hours + "h " + minutes + "m " + seconds + "s ")
-}
 function onSecond() {
   // function handling all countdowns
-  CountdownEnd();
-  CountdownPeriod();
+  runCountdown("#countdown-end",getEndOfSchool());
+  runCountdown("#countdown-period",getTimeUntilNextPeriod())
 }
 onSecond();
 setInterval(onSecond, 1000);
