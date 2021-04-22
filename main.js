@@ -5,11 +5,11 @@ $(document).ready(function () {
   $("a.navbar-brand").attr("target", "");
 });
 
-function getEndOfSchool(now) {
+function getFromTime(now,h,m,s) {
   end = new Date();
-  end.setHours(14);
-  end.setMinutes(5);
-  end.setSeconds(0);
+  end.setHours(h);
+  end.setMinutes(m);
+  end.setSeconds(s);
   return end - now.getTime();
 }
 function getTimeUntilNextPeriod(now) {
@@ -43,7 +43,7 @@ function runCountdown(selector,distance) {
 }
 function countdown() {
 now = new Date()
-runCountdown("#countdown-end",getEndOfSchool(now))
+runCountdown("#countdown-end",getFromTime(now,14,5,0))
 runCountdown("#countdown-period",getTimeUntilNextPeriod(now))
 }
 countdown()
