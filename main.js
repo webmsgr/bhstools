@@ -1,5 +1,5 @@
 // lmao
-function updateDay() { // Note to self, make autoupdate
+function updateDay() {
  now = new Date()
  $("#currentdate").html(now.toLocaleDateString(undefined,{ weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }))
  switch (now.getDay()) {
@@ -68,6 +68,6 @@ runCountdown("#countdown-lunchc",getFromTime(now,12,0,0))
 runCountdown("#countdown-period",getTimeUntilNextPeriod(now))
 }
 countdown()
-setInterval(countdown);
-
+setInterval(countdown,1000);
+setInterval(updateDay,5000);
 
