@@ -5,15 +5,14 @@ $(document).ready(function () {
   $("a.navbar-brand").attr("target", "");
 });
 
-function getEndOfSchool() {
+function getEndOfSchool(now) {
   end = new Date();
   end.setHours(14);
   end.setMinutes(5);
   end.setSeconds(0);
-  return end - new Date().getTime();
+  return end - now.getTime();
 }
-function getTimeUntilNextPeriod() {
-  now = new Date()
+function getTimeUntilNextPeriod(now) {
   endtimes = ["9:5","10:40","12:30","14:5"]
   ends = []
   for (i = 0; i < endtimes.length; i++) {
@@ -30,7 +29,8 @@ function getTimeUntilNextPeriod() {
   return -1
 }
 
-function runCountdown(selector,distance) {
+function runCountdown(selector,distancefunc) {
+  distance = distancefunc(new Date());
   if (distance < 0) {
     $(selector).html("0h 0m 0s ")
     return;
@@ -43,5 +43,5 @@ function runCountdown(selector,distance) {
   $(selector).html(hours + "h " + minutes + "m " + seconds + "s ")
 }
 
-setInterval(() => runCountdown("#countdown-end",getEndOfSchool()), 1000);
-setInterval(() => runCountdown("#countdown-period",getTimeUntilNextPeriod()), 1000);
+setInterval(() => runCountdown("#countdown-end",getEndOfSchool), 1000);
+setInterval(() => runCountdown("#countdown-period",getTimeUntilNextPeriod), 1000);
