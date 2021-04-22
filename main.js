@@ -43,10 +43,5 @@ function runCountdown(selector,distance) {
   $(selector).html(hours + "h " + minutes + "m " + seconds + "s ")
 }
 
-function onSecond() {
-  // function handling all countdowns
-  runCountdown("#countdown-end",getEndOfSchool());
-  runCountdown("#countdown-period",getTimeUntilNextPeriod())
-}
-onSecond();
-setInterval(onSecond, 1000);
+setInterval(() => runCountdown("#countdown-end",getEndOfSchool()), 1000);
+setInterval(() => runCountdown("#countdown-period",getTimeUntilNextPeriod()), 1000);
