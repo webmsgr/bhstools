@@ -1,7 +1,7 @@
 // lmao
 function updateDay() { // Note to self, make autoupdate
  now = new Date()
- $("#currentdate").html(now.toDateString())
+ $("#currentdate").html(now.toLocaleDateString(undefined,{ weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };))
  switch (now.getDay()) {
    case 1:
    case 4:
