@@ -1,9 +1,26 @@
 // lmao
+function updateDay() { // Note to self, make autoupdate
+ now = new Date()
+ $("#currentdate").html(now.toDateString())
+ switch (now.getDay()) {
+   case 1:
+   case 4:
+     cohort = "Cohort A"
+     break;
+   case 2:
+   case 5:
+     cohort = "Cohort B"
+     break;
+   default:
+     cohort = "Nobody"    
+ }
+  $("#cohort").html(cohort)
+}
 $(document).ready(function () {
   // set up links
   $("a").attr("target", "_blank").attr("referrerpolicy", "no-referrer");
   $("a.navbar-brand").attr("target", "");
-  $("#currentdate").html(new Date().toDateString()) // Note to self, make autoupdate
+  updateDay()
 });
 
 function getFromTime(now,h,m,s) {
