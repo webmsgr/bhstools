@@ -44,6 +44,9 @@ function runCountdown(selector,distance) {
 function countdown() {
 now = new Date()
 runCountdown("#countdown-end",getFromTime(now,14,5,0))
+runCountdown("#countdown-luncha",getFromTime(now,10,45,0))
+runCountdown("#countdown-lunchb",getFromTime(now,11,20,0))
+runCountdown("#countdown-lunchc",getFromTime(now,12,0,0))
 runCountdown("#countdown-period",getTimeUntilNextPeriod(now))
 }
 countdown()
