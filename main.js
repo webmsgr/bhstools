@@ -2,6 +2,7 @@
 $(document).ready(function () {
   // set up links
   $("a").attr("target", "_blank").attr("referrerpolicy", "no-referrer");
+  $("a.navbar-brand").attr("target","")
 });
 
 function getEndOfSchool() {
