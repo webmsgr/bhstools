@@ -20,7 +20,7 @@ function CountdownEnd() {
   // Find the distance between now and the count down date
   var distance = getEndOfSchool() - now;
   if (distance < 0) {
-    document.getElementById("countdown-end").innerHTML = "0h 0m 0s ";
+    $("#countdown-end").html("0h 0m 0s ")
     return;
   }
   // Time calculations for hours, minutes and seconds
@@ -29,11 +29,10 @@ function CountdownEnd() {
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
   // Display the result in the element with id="demo"
-  document.getElementById("countdown-end").innerHTML =
-    hours + "h " + minutes + "m " + seconds + "s ";
+  $("#countdown-end").html(hours + "h " + minutes + "m " + seconds + "s ")
 }
 function CountdownPeriod() {
-document.getElementById("countdown-period").innerHTML = "TODO"
+$("#countdown-period").html("TODO")
 }
 function onSecond() {
   // function handling all countdowns
