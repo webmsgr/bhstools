@@ -19,7 +19,7 @@ function onSecondForEnd() {
   // Find the distance between now and the count down date
   var distance = getEndOfSchool() - now;
   if (distance < 0) {
-    document.getElementById("countdown-end").innerHTML = "School Over!";
+    document.getElementById("countdown-end").innerHTML = "0h 0m 0s ";
     return;
   }
   // Time calculations for hours, minutes and seconds
