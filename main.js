@@ -29,8 +29,7 @@ function getTimeUntilNextPeriod(now) {
   return -1
 }
 
-function runCountdown(selector,distancefunc) {
-  distance = distancefunc(new Date());
+function runCountdown(selector,distance) {
   if (distance < 0) {
     $(selector).html("0h 0m 0s ")
     return;
@@ -42,6 +41,12 @@ function runCountdown(selector,distancefunc) {
 
   $(selector).html(hours + "h " + minutes + "m " + seconds + "s ")
 }
+function countdown() {
+now = new Date()
+runCountdown("#countdown-end",getEndOfSchool(now))
+runCountdown("#countdown-period",getTimeUntilNextPeriod(now))
+}
+countdown()
+setInterval(countdown);
 
-setInterval(() => runCountdown("#countdown-end",getEndOfSchool), 1000);
-setInterval(() => runCountdown("#countdown-period",getTimeUntilNextPeriod), 1000);
+
