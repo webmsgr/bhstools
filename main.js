@@ -12,7 +12,7 @@ function getEndOfSchool() {
   return end;
 }
 // code stolen lmao
-function onSecondForEnd() {
+function CountdownEnd() {
   // Get today's date and time
   var now = new Date().getTime();
 
@@ -31,7 +31,7 @@ function onSecondForEnd() {
   document.getElementById("countdown-end").innerHTML = hours + "h " + minutes + "m " + seconds + "s ";
 }
 function onSecond() { // function handling all countdowns
-  onSecondForEnd()
+  CountdownEnd()
 }
 onSecond();
 setInterval(onSecond,1000)
