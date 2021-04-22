@@ -32,9 +32,13 @@ function CountdownEnd() {
   document.getElementById("countdown-end").innerHTML =
     hours + "h " + minutes + "m " + seconds + "s ";
 }
+function CountdownPeriod() {
+document.getElementById("countdown-period").innerHTML = "TODO"
+}
 function onSecond() {
   // function handling all countdowns
   CountdownEnd();
+  CountdownPeriod();
 }
 onSecond();
 setInterval(onSecond, 1000);
