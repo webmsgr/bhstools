@@ -3,6 +3,7 @@ $(document).ready(function () {
   // set up links
   $("a").attr("target", "_blank").attr("referrerpolicy", "no-referrer");
   $("a.navbar-brand").attr("target", "");
+  $("#currentdate").html(new Date().toDateString()) // Note to self, make autoupdate
 });
 
 function getFromTime(now,h,m,s) {
