@@ -12,14 +12,14 @@ function getEndOfSchool() {
   return end;
 }
 // code stolen lmao
-function onSecond() {
+function onSecondForEnd() {
   // Get today's date and time
   var now = new Date().getTime();
 
   // Find the distance between now and the count down date
   var distance = getEndOfSchool() - now;
   if (distance < 0) {
-    document.getElementById("countdown").innerHTML = "School Over!";
+    document.getElementById("countdown-end").innerHTML = "School Over!";
     return;
   }
   // Time calculations for hours, minutes and seconds
@@ -28,7 +28,10 @@ function onSecond() {
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
   // Display the result in the element with id="demo"
-  document.getElementById("countdown").innerHTML = hours + "h " + minutes + "m " + seconds + "s ";
+  document.getElementById("countdown-end").innerHTML = hours + "h " + minutes + "m " + seconds + "s ";
+}
+function onSecond() { // function handling all countdowns
+  onSecondForEnd()
 }
 onSecond();
 setInterval(onSecond,1000)
