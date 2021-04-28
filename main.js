@@ -31,7 +31,13 @@ function getFromTime(now,h,m,s) {
   return end - now.getTime();
 }
 function getTimeUntilNextPeriod(now) {
-  endtimes = ["8:35","9:5","10:40","12:30","14:5"]
+  if (now.getDay() == 3) {
+    endtimes = ["8:50","9:35","10:25","11:15","11:50","12:35","13:25"]
+  } 
+  else {
+    endtimes = ["8:35","9:5","10:40","12:30","14:5"]
+  }
+  
   ends = []
   for (i = 0; i < endtimes.length; i++) {
     today = new Date()
