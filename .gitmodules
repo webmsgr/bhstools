@@ -1,0 +1,3 @@
+[submodule "qrious"]
+	path = qrious
+	url = https://github.com/neocotic/qrious
