@@ -58,9 +58,18 @@ function getTimeUntilNextPeriod(now) {
   return -1
 }
 if ($.queryString.has("ticket")) {
+  service = "https://webmsgr.github.io/bhstools"
+  ticket = $.queryString.get("ticket")
+  $.ajax("https://sso.bethelsd.org/serviceValidate",{
+    data: {service: service, ticket: ticket},
+    dataType: "xml"
+  }).done(function (data) {
+    console.log(data)
+  });
   // do the login
   // turns out the login outputs only your sid? lmao
 }
+
 function runCountdown(selector, distance) {
   if (distance < 0) {
     $(selector).html("0h 0m 0s ")
