@@ -23,14 +23,19 @@ validateurl = "https://sso.bethelsd.org/serviceValidate?service={}&ticket={}".fo
 app = Flask(__name__)
 
 app.secret_key = os.urandom(32)
+
+
 @app.route("/")
 def homepage():
-    return render_template("index.html",user=session.get("user",None),userFormatted=session.get("user","false"))
+    return render_template("index.html", user=session.get("user", None), userFormatted=session.get("user", "false"))
+
 
 @app.route("/logout")
 def logout():
     del session["user"]
     return redirect("https://{}/".format(hostname))
+
+
 @app.route("/login")
 def login():
     return redirect(loginurl)
