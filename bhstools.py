@@ -18,7 +18,7 @@ def login():
 def ticketlogin():
     ticket = request.args.get("ticket",None)
     if ticket is None:
-        return 403
+        abort(400)
     nformat = validateurl.format(ticket)
     data = requests.get(nformat)
     data = xmltodict.parse(data.text)
