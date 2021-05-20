@@ -9,6 +9,7 @@ from flask import Flask
 from flask import redirect
 from flask import render_template
 from flask import request
+from flask import session
 
 if os.environ.get("GITPOD_WORKSPACE_URL", None) is not None:
     hostname = os.environ.get("GITPOD_WORKSPACE_URL").replace(
@@ -21,12 +22,15 @@ validateurl = "https://sso.bethelsd.org/serviceValidate?service={}&ticket={}".fo
     service, "{}")
 app = Flask(__name__)
 
-
+app.secret_key = os.urandom(32)
 @app.route("/")
 def homepage():
-    return render_template("index.html")
+    return render_template("index.html",user=session.get("user",None),userFormatted=session.get("user","false"))
 
-
+@app.route("/logout")
+def logout():
+    del session["user"]
+    return redirect("https://{}/".format(hostname))
 @app.route("/login")
 def login():
     return redirect(loginurl)
@@ -46,6 +50,7 @@ def ticketlogin():
     userdata = resp["cas:authenticationSuccess"]
     studentid = userdata["cas:user"]
     print(studentid)
+    session["user"] = studentid
     return redirect("https://{}/".format(hostname))  # why
 
 
