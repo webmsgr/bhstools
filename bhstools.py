@@ -11,14 +11,14 @@ from flask import render_template
 from flask import request
 
 if os.environ.get("GITPOD_WORKSPACE_URL", None) is not None:
-    hostname = os.environ.get("GITPOD_WORKSPACE_URL").replace("https://", "5000-")
+    hostname = os.environ.get("GITPOD_WORKSPACE_URL").replace(
+        "https://", "5000-")
 else:
     hostname = "bhstools.herokuspp.com"
 service = urllib.parse.quote_plus("https://{}/ticket".format(hostname))
 loginurl = "https://sso.bethelsd.org/login?service={}".format(service)
 validateurl = "https://sso.bethelsd.org/serviceValidate?service={}&ticket={}".format(
-    service, "{}"
-)
+    service, "{}")
 app = Flask(__name__)
 
 
