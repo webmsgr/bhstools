@@ -22,7 +22,7 @@ validateurl = "https://sso.bethelsd.org/serviceValidate?service={}&ticket={}".fo
     service, "{}")
 app = Flask(__name__)
 
-app.secret_key = os.urandom(32)
+app.secret_key = os.environ.get("SECRETKEY",os.urandom(32))
 @app.route("/")
 def homepage():
     return render_template("index.html",user=session.get("user",None),userFormatted=session.get("user","false"))
