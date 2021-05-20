@@ -4,7 +4,11 @@ import urllib.parse
 
 import requests
 import xmltodict
-from flask import Flask, abort, redirect, render_template, request
+from flask import abort
+from flask import Flask
+from flask import redirect
+from flask import render_template
+from flask import request
 
 if os.environ.get("GITPOD_WORKSPACE_URL", None) is not None:
     hostname = os.environ.get("GITPOD_WORKSPACE_URL").replace("https://", "5000-")
