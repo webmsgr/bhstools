@@ -23,7 +23,7 @@ def ticketlogin():
     if ticket is None:
         abort(400)
     nformat = validateurl.format(ticket)
-    data = requests.get(nformat)
+    data = requests.get(nformat, verify="cert.pem")
     data = xmltodict.parse(data.text)
     print(data)
     return redirect("/")
