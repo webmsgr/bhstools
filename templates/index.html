@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-dark-5@0.1/dist/css/bootstrap-night.min.css" rel="stylesheet">
+  <script>
+    $.queryString = new URLSearchParams(window.location.search); // Extend jQuery with query string params
+  </script>
+  <meta name="color-scheme" content="dark">
+  <title>BHSTools</title>
+</head>
+
+<body>
+  <div class="container text-center" id="entiresite">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">BHSTools</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Education
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="https://bethelsd.instructure.com">Canvas</a></li>
+                <li><a class="dropdown-item" href="https://auth.edgenuity.com/Login/Login/Student">Edgenuity</a></li>
+                <li><a class="dropdown-item" href="https://my.bethelsd.org">myBethel</a></li>
+                <li><a class="dropdown-item" href="https://wa-beth-psv.edupoint.com/">StudentVUE/ParentVUE</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Misc
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item"
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSc7xTYeKB75EWv2Qk27FlNHv95o7D9iSc6czmRmUjPiUpRR5w/viewform?usp=sf_link">Lunch
+                    Sign In</a></li>
+                <li><a class="dropdown-item"
+                    href="https://insberr.github.io/schedule-personalizer/">Schedule-personalizer</a></li>
+                <li><a class="dropdown-item" href="https://wa-bethel.intouchreceipting.com/">Store
+                    (Fines/fees/yearbooks)</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://github.com/webmsgr/bhstools">Source</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- End Navbar -->
+    <br>
+    <h1> BHS Tools!</h1>
+    <p> Welcome to BHS Tools! </p>
+    <p> Use the navbar to access links </p>
+    <div id="generalinfo">
+      <h2> General Info </h2>
+      <div>
+        Today's date is <span id="currentdate">
+          <div class="spinner-border spinner-border-sm" role="status"><span class="visually-hidden">Loading
+              date...</span></div>
+        </span>
+        <br>
+        Today <span id="cohort">
+          <div class="spinner-border spinner-border-sm" role="status"><span class="visually-hidden">Loading
+              cohort...</span></div>
+        </span> is in-person.
+      </div>
+    </div>
+    <div id="countdowns">
+      <h2> Countdowns </h2>
+      <div><span id="countdown-end">
+          <div class="spinner-border spinner-border-sm" role="status">
+            <span class="visually-hidden">Loading countdown...</span>
+          </div>
+        </span> until school is over </div>
+      <div><span id="countdown-period">
+          <div class="spinner-border spinner-border-sm" role="status">
+            <span class="visually-hidden">Loading countdown...</span>
+          </div>
+        </span> until the end of the period </div>
+      <div id="lunches">
+        <div><span id="countdown-luncha">
+            <div class="spinner-border spinner-border-sm" role="status">
+              <span class="visually-hidden">Loading countdown...</span>
+            </div>
+          </span> until Lunch A </div>
+        <div><span id="countdown-lunchb">
+            <div class="spinner-border spinner-border-sm" role="status">
+              <span class="visually-hidden">Loading countdown...</span>
+            </div>
+          </span> until Lunch B </div>
+        <div><span id="countdown-lunchc">
+            <div class="spinner-border spinner-border-sm" role="status">
+              <span class="visually-hidden">Loading countdown...</span>
+            </div>
+          </span> until Lunch C </div>
+      </div>
+    </div>
+    <br>
+    <div id="thingsto-do">
+      <h2> Things I may be adding </h2>
+      <ul style="list-style-type:none; margin-left: 0">
+        <li> Login with myBethel </li>
+        <li> StudentVUE QR Code Generator </li>
+        <li> More countdowns </li>
+        <li> Interactive map? </li>
+        <li> Installable as a PWA </li>
+      </ul>
+    </div>
+    <div id="about">
+      <h2> About </h2>
+      <p> I created this site because I dislike myBethel. Simple as that.
+        <br>
+        This site is Open Source! Click the source link in the navbar to go to the Github
+      </p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
+    </script>
+    <script>
+    function updateDay() {
+  now = new Date()
+  $("#currentdate").html(now.toLocaleDateString(undefined, {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  }))
+  switch (now.getDay()) {
+    case 1:
+    case 4:
+      cohort = "Cohort A"
+      break;
+    case 2:
+    case 5:
+      cohort = "Cohort B"
+      break;
+    default:
+      cohort = "Nobody"
+  }
+  $("#cohort").html(cohort)
+}
+$(document).ready(function () {
+  // set up links
+  $("a").attr("target", "_blank").attr("referrerpolicy", "no-referrer");
+  $("a.navbar-brand").attr("target", "");
+  updateDay()
+});
+
+function getFromTime(now, h, m, s) {
+  end = new Date();
+  end.setHours(h);
+  end.setMinutes(m);
+  end.setSeconds(s);
+  return end - now.getTime();
+}
+
+function getTimeUntilNextPeriod(now) {
+  if (now.getDay() == 3) {
+    endtimes = ["8:50", "9:35", "10:25", "11:15", "11:50", "12:35", "13:25"]
+  } else {
+    endtimes = ["8:35", "9:5", "10:40", "12:30", "14:5"]
+  }
+
+  ends = []
+  for (i = 0; i < endtimes.length; i++) {
+    today = new Date()
+    time = endtimes[i].split(":")
+    today.setHours(parseInt(time[0]))
+    today.setMinutes(parseInt(time[1]))
+    today.setSeconds(0)
+    dist = today - now
+    if (dist > 0) {
+      return dist
+    }
+  }
+  return -1
+}
+
+function runCountdown(selector, distance) {
+  if (distance < 0) {
+    $(selector).html("0h 0m 0s ")
+    return;
+  }
+  // Time calculations for hours, minutes and seconds
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  $(selector).html(hours + "h " + minutes + "m " + seconds + "s ")
+}
+
+function countdown() {
+  now = new Date()
+  runCountdown("#countdown-end", getFromTime(now, 14, 5, 0))
+  runCountdown("#countdown-luncha", getFromTime(now, 10, 45, 0))
+  runCountdown("#countdown-lunchb", getFromTime(now, 11, 20, 0))
+  runCountdown("#countdown-lunchc", getFromTime(now, 12, 0, 0))
+  runCountdown("#countdown-period", getTimeUntilNextPeriod(now))
+}
+countdown()
+setInterval(countdown, 1000);
+setInterval(updateDay, 5000);
+    </script>
+  </div>
+</body>
+
+</html>
