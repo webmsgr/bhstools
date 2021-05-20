@@ -26,6 +26,6 @@ def ticketlogin():
     data = requests.get(nformat, verify="cert.pem")
     data = xmltodict.parse(data.text)
     print(data)
-    return redirect("/")
+    return redirect("https://{}/".format(hostname)) #why
 if __name__ == "__main__":
     app.run(port=os.environ.get("PORT",8080))
