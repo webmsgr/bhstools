@@ -12,14 +12,14 @@ from flask import request
 from flask import session
 
 if os.environ.get("GITPOD_WORKSPACE_URL", None) is not None:
-    hostname = os.environ.get("GITPOD_WORKSPACE_URL").replace(
-        "https://", "5000-")
+    hostname = os.environ.get("GITPOD_WORKSPACE_URL").replace("https://", "5000-")
 else:
     hostname = "bhstools.herokuapp.com"
 service = urllib.parse.quote_plus("https://{}/ticket".format(hostname))
 loginurl = "https://sso.bethelsd.org/login?service={}".format(service)
 validateurl = "https://sso.bethelsd.org/serviceValidate?service={}&ticket={}".format(
-    service, "{}")
+    service, "{}"
+)
 app = Flask(__name__)
 
 app.secret_key = os.urandom(32)
@@ -27,7 +27,11 @@ app.secret_key = os.urandom(32)
 
 @app.route("/")
 def homepage():
-    return render_template("index.html", user=session.get("user", None), userFormatted=session.get("user", "false"))
+    return render_template(
+        "index.html",
+        user=session.get("user", None),
+        userFormatted=session.get("user", "false"),
+    )
 
 
 @app.route("/logout")
