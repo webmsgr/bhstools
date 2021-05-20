@@ -3,6 +3,7 @@ import os
 import urllib.parse
 import requests
 import xmltodict
+import json
 if os.environ.get("GITPOD_WORKSPACE_URL",None) is not None:
     hostname = os.environ.get("GITPOD_WORKSPACE_URL").replace("https://","5000-")
 else:
@@ -25,7 +26,12 @@ def ticketlogin():
     nformat = validateurl.format(ticket)
     data = requests.get(nformat, verify="cert.pem")
     data = xmltodict.parse(data.text)
-    print(data)
+    resp = data["cas:serviceResponse"]
+    if "cas:authenticationFailure" in resp:
+        abort(401)
+    userdata = resp["cas:authenticationSuccess"]
+    studentid = userdata["cas:user"]
+    print(studentid)
     return redirect("https://{}/".format(hostname)) #why
 if __name__ == "__main__":
     app.run(port=os.environ.get("PORT",8080))
