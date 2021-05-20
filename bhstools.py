@@ -33,5 +33,8 @@ def ticketlogin():
     studentid = userdata["cas:user"]
     print(studentid)
     return redirect("https://{}/".format(hostname)) #why
+@app.route("/brewCoffee")
+def brewCoffee():
+    abort(418)
 if __name__ == "__main__":
     app.run(port=os.environ.get("PORT",8080))
