@@ -1,1 +1,1 @@
-web: python bhstools.py
+web: gunicorn bhstools:app
